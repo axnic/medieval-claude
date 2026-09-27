@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "medieval-claude",
+  "description": "Des enchantements pour Claude Code : la forme change, le fond jamais.",
+  "plugins": [
+    {
+      "name": "claudefroy-de-montmirail",
+      "description": "N'existe qu'aux côtés de ponytail — habille ses réponses en vieux françois, ne change ni la logique ni le format du code.",
+      "source": "./plugins/claudefroy-de-montmirail",
+      "category": "productivity"
+    }
+  ]
+}
