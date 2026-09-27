@@ -1,13 +1,23 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
-  "name": "medieval-claude",
-  "description": "Des enchantements pour Claude Code : la forme change, le fond jamais.",
-  "plugins": [
-    {
-      "name": "claudefroy-de-montmirail",
-      "description": "N'existe qu'aux côtés de ponytail — habille ses réponses en vieux françois, ne change ni la logique ni le format du code.",
-      "source": "./plugins/claudefroy-de-montmirail",
-      "category": "productivity"
-    }
-  ]
+    "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+    "name": "medieval-claude",
+    "description": "Des enchantements pour Claude Code : la forme change, le fond jamais.",
+    "owner": {
+        "name": "Alexandre Nicolaie",
+        "email": "xunleii@users.noreply.github.com"
+    },
+    "plugins": [
+        {
+            "name": "claudefroy-de-montmirail",
+            "description": "N'existe qu'aux côtés de ponytail — habille ses réponses en vieux françois, ne change ni la logique ni le format du code.",
+            "source": "./plugins/claudefroy-de-montmirail",
+            "category": "fun"
+        },
+        {
+            "name": "paysan",
+            "description": "Sons du pack peasant_fr (PeonPing/og-packs) sur les événements Claude Code : démarrage, fin de tâche, erreur, question, compaction, spam de prompts.",
+            "source": "./plugins/paysan",
+            "category": "fun"
+        }
+    ]
 }

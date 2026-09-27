@@ -46,6 +46,7 @@ Chaque enchantement ci-dessous s'installe ensuite séparément.
 | Enchantement | En deux mots | Installer |
 |---|---|---|
 | [**claudefroy-de-montmirail**](plugins/claudefroy-de-montmirail/skills/claudefroy-de-montmirail/README.md) | La voix de Godefroy de Montmirail, chevalier égaré dans notre siècle de machines. Compagnon de [ponytail](https://github.com/DietrichGebert/ponytail) : ne se réveille qu'à ses côtés. | `/plugin install claudefroy-de-montmirail@medieval-claude` |
+| [**paysan**](plugins/paysan/README.md) | Les cris du paysan (pack peasant_fr) à chaque événement de session — démarrage, fin de tâche, erreur, question, spam de prompts. Mute/démute via un script shell, hors Claude (0 token). Indépendant de claudefroy. | `/plugin install paysan@medieval-claude` |
 
 Chaque page du grimoire a son propre README : c'est là qu'on explique
 quand l'enchantement s'active et ce qu'il fait exactement.
