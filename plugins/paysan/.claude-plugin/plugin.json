@@ -1,6 +1,5 @@
 {
   "name": "paysan",
   "version": "0.1.0",
-  "description": "Sons du pack peasant_fr (PeonPing/og-packs) sur les événements Claude Code : démarrage, fin de tâche, erreur, question, compaction, spam de prompts.",
-  "hooks": "./hooks/hooks.json"
+  "description": "Sons du pack peasant_fr (PeonPing/og-packs) sur les événements Claude Code : démarrage, fin de tâche, erreur, question, compaction, spam de prompts."
 }

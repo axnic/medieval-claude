@@ -36,6 +36,17 @@ Un script POSIX `sh` équivalent (`paysan-son.sh`) existe aussi pour basculer
 le même flag sans passer par Claude (0 token), à lancer directement dans un
 terminal — utile si `/mute` est trop coûteux pour un simple toggle.
 
+## Volume
+
+```
+/volume 40
+```
+
+Règle le volume (0-100, défaut 70 si l'argument est omis) dans
+`~/.claude/.paysan-sound-volume`. Pris en charge via `afplay -v` (mac) et
+`paplay --volume` (linux) ; `aplay` n'a pas d'équivalent simple et ignore ce
+réglage.
+
 ## Licence des sons
 
 Le pack `peasant_fr` est sous licence CC-BY-NC-4.0 (usage non commercial) —

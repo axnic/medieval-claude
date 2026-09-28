@@ -23,6 +23,14 @@ function isMuted() {
   return fs.existsSync(path.join(getConfigDir(), '.paysan-sound-muted'));
 }
 
+function getVolume() {
+  try {
+    const n = parseInt(fs.readFileSync(path.join(getConfigDir(), '.paysan-sound-volume'), 'utf8'), 10);
+    if (Number.isFinite(n)) return Math.max(0, Math.min(100, n));
+  } catch (e) {}
+  return 100;
+}
+
 function readStdin(callback) {
   let input = '';
   process.stdin.on('data', (chunk) => { input += chunk; });
@@ -59,12 +67,15 @@ function play(category) {
 
   const file = path.join(SOUNDS_DIR, sounds[Math.floor(Math.random() * sounds.length)].file);
 
+  const volume = getVolume();
+
   let player, args;
   if (process.platform === 'darwin') {
-    player = 'afplay'; args = [file];
+    player = 'afplay'; args = ['-v', String(volume / 100), file];
   } else if (hasCommand('paplay')) {
-    player = 'paplay'; args = [file];
+    player = 'paplay'; args = [`--volume=${Math.round(volume / 100 * 65536)}`, file];
   } else if (hasCommand('aplay')) {
+    // ponytail: aplay n'a pas de réglage de volume simple en ligne de commande, ignoré.
     player = 'aplay'; args = ['-q', file];
   } else {
     return;

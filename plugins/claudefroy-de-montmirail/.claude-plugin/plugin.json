@@ -1,6 +1,5 @@
 {
   "name": "claudefroy-de-montmirail",
   "version": "0.1.0",
-  "description": "Voix de Godefroy de Montmirail en vieux françois pour le clavardage Claude Code — n'existe qu'aux côtés de ponytail, dont il ne change que la forme du discours, jamais le fond ni le format du code.",
-  "hooks": "./hooks/hooks.json"
+  "description": "Voix de Godefroy de Montmirail en vieux françois pour le clavardage Claude Code — n'existe qu'aux côtés de ponytail, dont il ne change que la forme du discours, jamais le fond ni le format du code."
 }
