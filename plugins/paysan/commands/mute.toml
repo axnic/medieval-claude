@@ -1,2 +1,0 @@
-description = "Coupe ou réactive les sons du paysan (pack peasant_fr) sur les événements Claude Code"
-prompt = "Exécute cette commande shell exacte via l'outil Bash puis rapporte uniquement son dernier message, sans rien ajouter :\n\nDIR=\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"; FLAG=\"$DIR/.paysan-sound-muted\"; if [ -e \"$FLAG\" ]; then rm \"$FLAG\"; echo 'Sons du paysan réactivés.'; else mkdir -p \"$DIR\"; touch \"$FLAG\"; echo 'Sons du paysan coupés.'; fi"

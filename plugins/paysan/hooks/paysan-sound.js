@@ -23,6 +23,13 @@ function isMuted() {
   return fs.existsSync(path.join(getConfigDir(), '.paysan-sound-muted'));
 }
 
+function getDisabledCategories() {
+  try {
+    return fs.readFileSync(path.join(getConfigDir(), '.paysan-sound-disabled'), 'utf8')
+      .split('\n').map((s) => s.trim()).filter(Boolean);
+  } catch (e) { return []; }
+}
+
 function getVolume() {
   try {
     const n = parseInt(fs.readFileSync(path.join(getConfigDir(), '.paysan-sound-volume'), 'utf8'), 10);
@@ -88,18 +95,25 @@ function play(category) {
   }
 }
 
-if (isMuted()) process.exit(0);
+function main() {
+  if (isMuted()) process.exit(0);
 
-const category = process.argv[2];
-if (!category) process.exit(0);
+  const category = process.argv[2];
+  if (!category) process.exit(0);
+  if (getDisabledCategories().includes(category)) process.exit(0);
 
-if (category === 'user.spam') {
-  readStdin((input) => {
-    let sessionId = 'default';
-    try { sessionId = JSON.parse(input).session_id || sessionId; } catch (e) {}
-    if (isSpam(sessionId)) play('user.spam');
-    process.exit(0);
-  });
-} else {
-  play(category);
+  if (category === 'user.spam') {
+    readStdin((input) => {
+      let sessionId = 'default';
+      try { sessionId = JSON.parse(input).session_id || sessionId; } catch (e) {}
+      if (isSpam(sessionId)) play('user.spam');
+      process.exit(0);
+    });
+  } else {
+    play(category);
+  }
 }
+
+if (require.main === module) main();
+
+module.exports = { isMuted, getVolume, getDisabledCategories, isSpam };

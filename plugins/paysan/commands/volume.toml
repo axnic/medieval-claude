@@ -1,2 +1,0 @@
-description = "Règle le volume des sons du paysan (0-100, défaut 70)"
-prompt = "Exécute cette commande shell exacte via l'outil Bash puis rapporte uniquement son dernier message, sans rien ajouter :\n\nDIR=\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"; V=\"{{args}}\"; V=\"${V:-70}\"; case \"$V\" in ''|*[!0-9]*) echo 'Volume invalide, attendu un entier 0-100.'; exit 0;; esac; if [ \"$V\" -gt 100 ]; then V=100; fi; mkdir -p \"$DIR\"; echo \"$V\" > \"$DIR/.paysan-sound-volume\"; echo \"Volume du paysan réglé à ${V}%.\""

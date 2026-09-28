@@ -24,26 +24,32 @@ du clavardage ni au code, il ajoute juste du son.
 
 `task.acknowledge` (un son à chaque prompt) n'est pas câblé — trop bruyant.
 
-## Mute / démute
+## Motus (mute sélectif)
 
 ```
-/mute
+/paysan-motus              # bascule le silence complet (~/.claude/.paysan-sound-muted)
+/paysan-motus user.spam    # coupe/réactive une seule catégorie (~/.claude/.paysan-sound-disabled)
+/paysan-motus liste        # affiche l'état du motus général et de chaque catégorie
 ```
 
-Bascule un simple fichier flag (`~/.claude/.paysan-sound-muted`).
+Catégories valides : `session.start`, `task.complete`, `task.error`,
+`input.required`, `resource.limit`, `user.spam` — voir le tableau ci-dessus.
+Le motus général (sans argument) prime sur tout ; une catégorie coupée
+individuellement ne coupe qu'elle-même, notamment `user.spam` qui ne touche
+jamais aux autres sons.
 
 Un script POSIX `sh` équivalent (`paysan-son.sh`) existe aussi pour basculer
-le même flag sans passer par Claude (0 token), à lancer directement dans un
-terminal — utile si `/mute` est trop coûteux pour un simple toggle.
+le motus général sans passer par Claude (0 token), à lancer directement dans
+un terminal — utile si `/paysan-motus` est trop coûteux pour un simple toggle.
 
-## Volume
+## Clameur (volume)
 
 ```
-/volume 40
+/paysan-clameur 40
 ```
 
-Règle le volume (0-100, défaut 70 si l'argument est omis) dans
-`~/.claude/.paysan-sound-volume`. Pris en charge via `afplay -v` (mac) et
+Règle la clameur (0-100, défaut 70 si l'argument est omis) dans
+`~/.claude/.paysan-sound-volume`. Prise en charge via `afplay -v` (mac) et
 `paplay --volume` (linux) ; `aplay` n'a pas d'équivalent simple et ignore ce
 réglage.
 

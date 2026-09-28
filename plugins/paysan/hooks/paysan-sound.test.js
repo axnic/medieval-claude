@@ -19,3 +19,16 @@ for (const cat of WIRED) {
 }
 
 console.log('OK — manifest et fichiers sons présents pour :', WIRED.join(', '));
+
+// ponytail: teste getDisabledCategories() en isolation via un CLAUDE_CONFIG_DIR
+// jetable — le module ne joue aucun son tant qu'il n'est pas exécuté en script.
+const os = require('os');
+const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'paysan-test-'));
+process.env.CLAUDE_CONFIG_DIR = tmp;
+const { getDisabledCategories } = require('./paysan-sound.js');
+
+assert.deepStrictEqual(getDisabledCategories(), [], 'aucun fichier .paysan-sound-disabled → liste vide');
+fs.writeFileSync(path.join(tmp, '.paysan-sound-disabled'), 'user.spam\ntask.error\n\n');
+assert.deepStrictEqual(getDisabledCategories(), ['user.spam', 'task.error'], 'parse des catégories coupées, lignes vides ignorées');
+
+console.log('OK — getDisabledCategories() filtre correctement');
