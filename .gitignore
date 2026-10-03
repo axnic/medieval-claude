@@ -1,2 +1,5 @@
 .DS_Store
 .remember/
+
+# mise local state (generated lock directories): never tracked.
+.mise/
