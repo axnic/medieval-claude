@@ -1,0 +1,19 @@
+# Dev toolchain: `mise install`, then `mise tasks`.
+
+[tools]
+node = "lts"
+"github:axnic/rtunk" = "latest"       # lint stack, drives .rtunk/rtunk.yaml
+"npm:@commitlint/cli" = "latest"      # drives .commitlintrc.js
+"npm:@commitlint/config-conventional" = "latest"
+
+[tasks.lint]
+description = "Lint the whole repository with rtunk"
+run = "rtunk check ."
+
+[tasks."lint:fix"]
+description = "Lint the whole repository with rtunk and apply fixes"
+run = "rtunk check --fix ."
+
+[tasks."ci:commitlint"]
+description = "Validate commit messages (usage: mise run ci:commitlint -- --from <sha> --to <sha> | --last)"
+run = "commitlint --verbose"
