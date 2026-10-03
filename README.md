@@ -56,3 +56,8 @@ quand l'enchantement s'active et ce qu'il fait exactement.
 La salle d'armes est encore presque vide, et c'est voulu. D'autres
 enchantements viendront s'y accrocher, un par un, tant qu'ils respectent
 le serment.
+
+## Development
+
+`mise install` sets up the toolchain (node, rtunk, commitlint).
+`mise run lint` (or `lint:fix`) runs the linters; commits follow Conventional Commits.
