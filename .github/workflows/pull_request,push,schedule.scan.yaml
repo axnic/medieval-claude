@@ -42,3 +42,5 @@ jobs:
       actions: read
       contents: read
       security-events: write
+    with:
+      languages: "[\"javascript-typescript\"]"
